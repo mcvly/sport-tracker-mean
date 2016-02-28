@@ -1,0 +1,19 @@
+{
+  "name": "sport-tracker-mean",
+  "version": "1.0.0",
+  "description": "Sport Tracker App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcvly/sport-tracker-mean.git"
+  },
+  "author": "mcvly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcvly/sport-tracker-mean/issues"
+  },
+  "homepage": "https://github.com/mcvly/sport-tracker-mean#readme"
+}
