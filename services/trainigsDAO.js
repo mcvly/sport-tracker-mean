@@ -31,7 +31,6 @@ module.exports.addNewTraining = function(trainingDoc) {
   })
 };
 
-//module.exports.trainingById = function(itemId) {
-//  var o_id = new mongodb.ObjectID(itemId);
-//  return mongo.trainings.find({_id: o_id}).limit(1).next()
-//};
+module.exports.trainingById = function(itemId) {
+  return mongo.trainings.find({_id: itemId}).limit(1).next()
+};

@@ -4,11 +4,11 @@ var trainingDao = require("../services/trainigsDAO");
 
 /* GET training by id. */
 router.get('/:id', function(req, resp, next) {
-  var itemId = req.params.id;
+  var itemId = parseInt(req.params.id);
   trainingDao.trainingById(itemId)
   .then(function(item) {
     if (!item) return next(new Error("Training not found by id " + itemId));
-    resp.send("Training found");
+    resp.render('training', {training: item})
   })
 });
 
@@ -22,7 +22,7 @@ router.post('/', function(req, resp, next) {
 });
 
 router.get('/', function (req, resp, next) {
-  resp.render('training', {});
+  resp.render('addTraining', {});
 });
 
 module.exports = router;

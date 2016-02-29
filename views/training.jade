@@ -4,9 +4,6 @@ block content
     include nav
     // Page Content
     .well
-      h4 Add Training
-      form(action="/training", role="form", method="post")
-        .form-group
-          label(for="name") Type
-          input(type="text", class="form-control", id="name", name="type")
-        button(type="submit", class="btn btn-primary") Submit
+      h4 Training Details
+      p Type: #{training.type}
+      p Date: #{moment(training.date).format('DD-MM-YY')}
