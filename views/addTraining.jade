@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    include nav
+    // Page Content
+    .well
+      h4 Add Training
+      form(action="/training", role="form", method="post")
+        .form-group
+          label(for="name") Type
+          input(type="text", class="form-control", id="name", name="type")
+        button(type="submit", class="btn btn-primary") Submit
