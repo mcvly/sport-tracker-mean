@@ -3,8 +3,18 @@
   <form action="/training" role="form" method="post">
     <div class="form-group">
       <label for="type">Type</label>
-      <input type="text" class="form-control" id="type" name="type"/>
+      <input type="text" class="form-control" name="type"/>
+      <label for="datetimepicker">Date</label>
+      <input id="datetimepicker" class="form-control" name="date" type="text" >
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+
+    <script>
+      $(function() {
+        $( "#datetimepicker" ).datetimepicker();
+      });
+    <{{!}}/script>
+
+
   </form>
 </div>

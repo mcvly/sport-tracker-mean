@@ -23,7 +23,7 @@ module.exports.addNewTraining = function(trainingDoc) {
   .then(function(id) {
     trainingDoc['_id'] = id.sequence_value;
     if (!trainingDoc.date) {
-      trainingDoc.date = Date.now();
+      trainingDoc.date = new Date(Date.now());
     }
     var types = trainingDoc.type.split(',');
     trainingDoc.type = types.map(t => t.trim());

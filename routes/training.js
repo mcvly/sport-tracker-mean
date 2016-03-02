@@ -13,8 +13,13 @@ router.get('/:id', function(req, resp, next) {
 });
 
 router.post('/', function(req, resp, next) {
+  var date = req.body.date;
+  if (!date) {
+    date = Date.now();
+  }
   var training = {
-    type: req.body.type
+    type: req.body.type,
+    date: date
   };
   trainingDao.addNewTraining(training)
     .then(res => resp.redirect('/'))

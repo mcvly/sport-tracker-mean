@@ -23,8 +23,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 hbs.registerHelper('dateFormat', function(context, block) {
-  var f = block.hash.format || "DD-MM-YY";
-  return moment(new Date(context)).format(f);
+  return moment(new Date(context)).format("DD-MMM-YY HH:mm:ss");
 });
 hbs.registerHelper('paginate', paginate);
 
