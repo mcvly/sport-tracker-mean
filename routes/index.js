@@ -1,7 +1,8 @@
 var express = require('express');
+var _ = require('lodash');
+
 var router = express.Router();
 var trainingDao = require("../services/trainigsDAO");
-
 var defaultItemsPerPage = 3;
 
 /* GET home page. */
@@ -11,18 +12,18 @@ router.get('/', function(req, resp, next) {
   var context = {
     'itemsPerPage' : page
   };
+  var numPages = 0;
   trainingDao.trainingsCount()
   .then(res => {
-    context.totalItems = res;
-    var numPages = 0;
     if (res > pageSize) {
       numPages = Math.ceil(res / defaultItemsPerPage);
     }
-    context.pages = numPages;
-    context.curPage = page + 1;
     return trainingDao.trainingsByDatePaged(page, pageSize);
   })
-  .then(res => resp.render('index', { trainings: res, pageContext: context, title: 'Sports Tracker'}))
+  .then(res => resp.render('index', { trainings: res, pageContext: context, title: 'Sports Tracker', pagination: {
+    page: page+1,
+    pageCount: numPages
+  }}))
   .catch(err => next(err));
 });
 
