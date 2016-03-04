@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 var trainingDao = require("../services/trainigsDAO");
 
 /* GET training by id. */
@@ -15,7 +16,9 @@ router.get('/:id', function(req, resp, next) {
 router.post('/', function(req, resp, next) {
   var date = req.body.date;
   if (!date) {
-    date = Date.now();
+    date = new Date(Date.now());
+  } else {
+    date = moment(new Date(date)).utc().toDate();
   }
   var training = {
     type: req.body.type,

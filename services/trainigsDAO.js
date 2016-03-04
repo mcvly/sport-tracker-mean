@@ -22,11 +22,6 @@ module.exports.addNewTraining = function(trainingDoc) {
   return seq.nextTrainingId()
   .then(function(id) {
     trainingDoc['_id'] = id.sequence_value;
-    if (!trainingDoc.date) {
-      trainingDoc.date = new Date(Date.now());
-    }
-    var types = trainingDoc.type.split(',');
-    trainingDoc.type = types.map(t => t.trim());
     return mongo.trainings.insertOne(trainingDoc);
   })
 };
