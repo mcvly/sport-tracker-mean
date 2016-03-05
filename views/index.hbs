@@ -16,8 +16,12 @@
       </a>
     </div>
     <div class="col-md-5">
-      <h3>{{type}}</h3>
       <h4>{{dateFormat date}}</h4>
+      <ul class="tags">
+        {{#each type}}
+          <li><a href="/training/type/{{this}}" class="tag">{{this}}</a></li>
+        {{/each}}
+      </ul>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
       <a class="btn btn-primary" href="/training/{{_id}}">Details</a>
     </div>
