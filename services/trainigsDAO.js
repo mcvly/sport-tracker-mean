@@ -40,3 +40,12 @@ module.exports.trainingsByType = function(type, page, itemsPerPage) {
 module.exports.trainingsByTypeCount = function(type) {
   return mongo.trainings.count({type: type});
 };
+
+module.exports.exerciseGroups = function() {
+  return mongo.exercises.aggregate([
+    {$group: {_id: "$group", items: {$addToSet : "$name"}}},
+    {$unwind: "$items"},
+    {$sort: {items: 1}},
+    {$group: {_id: "$_id", items: {$push : "$items"}}}
+  ]);
+};

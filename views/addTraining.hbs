@@ -13,6 +13,8 @@
       </select>
       <label for="datetimepicker">Date</label>
       <input id="datetimepicker" class="form-control" name="date" type="text" >
+      <label for="tags">Tags: </label>
+      <input id="tags">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     <script>
@@ -20,6 +22,9 @@
         $( "#datetimepicker" ).datetimepicker();
         // initialize sol
         $('#types').searchableOptionList();
+        $( "#tags" ).autocomplete({
+          source:
+        });
       });
     <{{!}}/script>
     <style>
